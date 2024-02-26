@@ -21,3 +21,6 @@ Setelah endpoint selesai, penggunaan ram sejumlah 750+mb masih tidak dilepaskan 
 # Informasi
 - Nodejs: 18.19.1
 - MongoDB: 7.0.5
+
+# Masalah
+- Setelah log "proses selesai!" muncul, endpoint tidak memberikan response "done" ke postman
