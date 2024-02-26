@@ -42,13 +42,13 @@ function truncateCollection() {
     catch(error => console.error(error));
 }
 
-// Fungsi untuk memasukan data satu persatu
-async function insertOneRow(data) {
-  await DataModel.create(data)
-    .then(_ => console.log(`id ${data.ID} berhasil ditambahkan.`)) // console.log() menyumbang penggunaan ram yang lumayan(sekitar 18mb per 100k console.log()). comment saja line ini saat production
+// Fungsi untuk memasukan data sekaligus
+async function insertManyRows(data) {
+  await DataModel.insertMany(data)
+    .then(_ => console.log(`data sebanyak ${data.length} berhasil ditambahkan.`)) // console.log() menyumbang penggunaan ram yang lumayan(sekitar 18mb per 100k console.log()). comment saja line ini saat production
     .catch(error => console.error(error));
 }
 
 module.exports = {
-  insertOneRow
+  insertManyRows
 };
