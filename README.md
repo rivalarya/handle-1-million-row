@@ -1,12 +1,12 @@
 # Penyelesaian
-Penyelesaian kali ini menggunakan metode batch.
-Load dataset secara stream, kemudian datanya dimasukan ke dalam array ```results```. Selagi data dimasukan ke ```results```, tambahkan pengkondisian untuk memasukan data yang sudah ada sesuai batch yang sudah di set di kode. Jadi tidak perlu menunggu semua data terkumpul di ```results``` terlebih dahulu. Silahkan baca kodenya untuk implementasi yang lebih lengkap.
+Penyelesaian kali ini menggunakan metode batch, ditambah dengan batch promise.
+Load dataset secara stream, kemudian datanya dimasukan ke dalam array ```results```. Selagi data dimasukan ke ```results```, tambahkan pengkondisian untuk memasukan data yang sudah ada sesuai batch yang sudah di set di kode. Jadi tidak perlu menunggu semua data terkumpul di ```results``` terlebih dahulu. Dan buat promise sejumlah yang sudah ditentukan kemudian gunakan ```Promise.all()``` untuk menunggu semua promise itu selesai. Silahkan baca kodenya untuk implementasi yang lebih lengkap.
 
 Untuk record monitoring bisa dilihat [disini](https://link).
 
 - Waktu yang dibutuhkan untuk selesai: 13 menit
-- Penggunaan cpu tertinggi: -+147%
-- Penggunaan ram tertinggi: -+160 MB
+- Penggunaan cpu tertinggi: -+190%
+- Penggunaan ram tertinggi: -+200 MB
 
 Setelah endpoint selesai, penggunaan ram kembali ke awal seperti saat aplikasi pertama kali dijalankan. Yang berarti memori berhasil dilepaskan oleh [Garbage Collection](https://javascript.info/garbage-collection).
 

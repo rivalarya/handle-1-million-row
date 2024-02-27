@@ -6,6 +6,7 @@ const app = express();
 
 const DATASET_PATH = `${process.cwd()}/yelp_database.csv`
 const BATCH_SIZE = 5000 // Set ukuran batch data yang akan di insert
+const NUMBER_OF_PROMISE = 4 // Set ukuran promise yang akan meng-insert data
 
 // Endpoint '/'
 app.get('/', (req, res) => {
@@ -17,13 +18,19 @@ app.get('/', (req, res) => {
       results.push(data) // Masukan data ke penyimpanan sementara
 
       // Tambahkan kondisinya disini
-      if (results.length >= BATCH_SIZE) {
-        /**
-         * Disini saya menggunakan "splice" dibanding "slice" karena "splice" itu memindahkan data dari variabel sumber ke variabel sekarang. Sedangkan slice itu meng-copy data dari variabel sumber ke variabel sekarang. Maka dari itu menggunakan "slice" akan lebih menggunakan memori(ram).
-         */
-        const data = results.splice(0, BATCH_SIZE)
+      const totalBatchSize = BATCH_SIZE * NUMBER_OF_PROMISE
+      if (results.length >= totalBatchSize) {
+        const promises = []
+        for (let i = 0; i < NUMBER_OF_PROMISE; i++) {
+          /**
+           * Disini saya menggunakan "splice" dibanding "slice" karena "splice" itu memindahkan data dari variabel sumber ke variabel sekarang. Sedangkan slice itu meng-copy data dari variabel sumber ke variabel sekarang. Maka dari itu menggunakan "slice" akan lebih menggunakan memori(ram).
+           */
+          const data = results.splice(0, BATCH_SIZE)
 
-        await insertManyRows(data) // masukan datanya
+          promises.push(insertManyRows(data)) // masukan fungsinya kedalam promises
+        }
+
+        await Promise.all(promises)
       }
     })
     .on('end', () => {
