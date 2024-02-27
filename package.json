@@ -9,6 +9,9 @@
     "nodemon": "^3.1.0"
   },
   "scripts": {
+    "monit": "pm2 monit",
+    "monit-start": "pm2 start src/main.js",
+    "monit-restart": "pm2 restart src/main.js",
     "start": "node src/main.js",
     "dev": "nodemon src/main.js"
   }
