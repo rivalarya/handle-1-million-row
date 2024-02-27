@@ -2,7 +2,7 @@
 Penyelesaian kali ini menggunakan metode batch, ditambah dengan batch promise.
 Load dataset secara stream, kemudian datanya dimasukan ke dalam array ```results```. Selagi data dimasukan ke ```results```, tambahkan pengkondisian untuk memasukan data yang sudah ada sesuai batch yang sudah di set di kode. Jadi tidak perlu menunggu semua data terkumpul di ```results``` terlebih dahulu. Dan buat promise sejumlah yang sudah ditentukan kemudian gunakan ```Promise.all()``` untuk menunggu semua promise itu selesai. Silahkan baca kodenya untuk implementasi yang lebih lengkap.
 
-Untuk record monitoring bisa dilihat [disini](https://link).
+Untuk record monitoring bisa dilihat [disini](https://youtu.be/t6FLzmOnbcM).
 
 - Waktu yang dibutuhkan untuk selesai: 13 menit
 - Penggunaan cpu tertinggi: -+190%
