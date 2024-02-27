@@ -1,7 +1,7 @@
 # Penyelesaian
 Load dataset secara stream, kemudian datanya dimasukan ke dalam array ```results```. Setelah semua data dimasukan, looping array ```results``` kemudian insert satu persatu kedalam database. Silahkan baca kodenya untuk implementasi yang lebih lengkap.
 
-Untuk record monitoring bisa dilihat [disini](https://link).
+Untuk record monitoring bisa dilihat [disini](https://youtu.be/qxIOqkejPVM).
 
 - Waktu yang dibutuhkan untuk selesai: 1 jam
 - Penggunaan cpu tertinggi: 170%
